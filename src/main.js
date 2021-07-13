@@ -1,5 +1,20 @@
 import { createApp } from 'vue';
+import VurRoute from "vue-router";
+import VueSweetalert2 from 'vue-sweetalert2';
+import axios from 'axios';
+import Vuelidate from 'vuelidate';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import $ from "jquery";
 import App from './App.vue';
 import router from './router';
+import 'nprogress/nprogress.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap';
+import './assets/css/styles.css';
 
-createApp(App).use(router).mount('#app');
+library.add(fas);
+
+createApp(App).component('fa', FontAwesomeIcon, $).use(router, 
+    VueSweetalert2, axios, Vuelidate, library, FontAwesomeIcon, VurRoute).mount('#app');

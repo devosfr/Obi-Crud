@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+
+.form-insert div label{
+  text-align: left;
+  width: 100%;
+}
+
+.mb-3 button .btns {
+    float: right;
+}
+
+a[data-v-037cc8c3] {
+  color: #fff !important;
+}
+
+.btns input {
+  float: left !important;
+  margin: 3px;
+}
+
+.config-text{
+  text-align: left;
+  color: #ff0000;
+}

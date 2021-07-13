@@ -1,24 +1,11 @@
-# teste-obi-crud2
 
-## Project setup
-```
-npm install
-```
+O banco de dados utilizado é do tipo mysql e se encontra na raiz do testev ("obicrude.sql").
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+O framework utilizado foi Vue-cli
 
-### Compiles and minifies for production
-```
-npm run build
-```
+Para criar a api utilizei nodejs, express, sequilize
 
-### Lints and fixes files
-```
-npm run lint
-```
+Para subir o servidor da api deve-se utilizar o comando "nodemon" ou "npm start" no terminal,
+o qual está na porta 3001 (localhost:3001).
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+O servidor do vue está na porta 8080, o que já vêm como padrão.
