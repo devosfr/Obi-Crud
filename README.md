@@ -3,6 +3,8 @@ O banco de dados utilizado é do tipo mysql e se encontra na raiz do testev ("ob
 
 O framework utilizado foi Vue-cli
 
+Para lista os dados da api é necessário acessar a url "localhost:3001/users" 
+
 Para criar a api utilizei nodejs, express, sequilize
 
 Para subir o servidor da api deve-se utilizar o comando "nodemon" ou "npm start" no terminal,
