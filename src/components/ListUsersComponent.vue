@@ -76,9 +76,6 @@
 </template>
 
 <script>
-import Vue from "vue";
-import VurRoute from "vue-router";
-// Vue.use(VueRouter);
 import usersService from "../services/usersService";
 
 export default {

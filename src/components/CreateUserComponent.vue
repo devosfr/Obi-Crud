@@ -100,16 +100,6 @@ import usersService from "../services/usersService";
 
 global.jQuery = jQuery;
 
-// const urlParams = new URLSearchParams(window.location.search);
-// const ObjId = urlParams.get("userId");
-// console.log(ObjId);
-
-// let listUsers = [];
-// usersService.getUsers().then((res) => {
-//   this.users = res;
-// });
-// listUsers = this.users;
-// const user = listUsers.filter((u) => u.id === id);
 export default {
   mounted() {
     this.getUsersComponent();
@@ -159,7 +149,6 @@ export default {
       }
     },
     submitNewUser() {
-      // let executeSave = null;
       if (!this.userForm.id) {
         const name = document.getElementById("name");
         const email = document.getElementById("email");

@@ -32,9 +32,8 @@
         <input
           type="button"
           class="btn btn-secondary"
-          v-show="false"
           id="btn-cancelar"
-          @click="submitNewUser"
+          @click="redirectGoBack()"
           value="Cancelar"
         />
         <input
@@ -100,18 +99,9 @@ import usersService from "../services/usersService";
 
 global.jQuery = jQuery;
 
-// const urlParams = new URLSearchParams(window.location.search);
-// const ObjId = urlParams.get("userId");
-// console.log(ObjId);
-
-// let listUsers = [];
-// usersService.getUsers().then((res) => {
-//   this.users = res;
-// });
-// listUsers = this.users;
-// const user = listUsers.filter((u) => u.id === id);
 export default {
   mounted() {
+    this.getUsersComponent();
     this.getObjectById();
     jQuery("#btnModal").hide();
     document.getElementById("modal-dody-id").innerHTML = "";
@@ -133,6 +123,11 @@ export default {
     }
   },
   methods: {
+    async getUsersComponent() {
+      await usersService.getUsers().then(res => {
+        this.users = res;
+      });
+    },
     async getObjectById() {
       const user = await usersService.getUserById(this.$route.query.id);
       this.userForm = { ...user };
@@ -155,6 +150,19 @@ export default {
       }
     },
     async editUser() {
+      this.getUsersComponent();
+      for (let i = 0; i < this.users.length; i = i + 1) {
+        if (this.users[i].name == this.userForm.name) {
+          document.getElementById("modal-dody-id").innerHTML = "Nome já cadastrado!";
+          jQuery("#btnModal").click();
+          return;
+        }
+        if (this.users[i].email == this.userForm.email) {
+          document.getElementById("modal-dody-id").innerHTML = "Email já cadastrado!";
+          jQuery("#btnModal").click();
+          return;
+        }
+      }
       await usersService
         .updateUser({
           id: this.$route.query.id,
@@ -169,10 +177,11 @@ export default {
           console.log(error);
         });
     },
+    redirectGoBack() {
+      window.history.go(-1);
+    },
     redirectView() {
-      if (
-        document.getElementById("modal-dody-id").innerHTML === "Usuário editado com successo!"
-      ) {
+      if (document.getElementById("modal-dody-id").innerHTML === "Usuário editado com successo!") {
         document.location.href =
           window.location.origin + window.location.pathname + window.location.search;
       }
