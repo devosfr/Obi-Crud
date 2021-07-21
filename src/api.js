@@ -1,7 +1,7 @@
     const express = require('express');
     const cors = require('cors');
     const app = express();
-    const User = require('../src/config/userModel');
+    const User = require('./config/userModel');
 
     app.use(express.urlencoded({ extended: true }));
     app.use(express.json());
@@ -21,8 +21,7 @@
 
     app.get('/users/:id', async(req, res) => {
         const UserById = await User.findByPk(req.params.id);
-        res.status(200).json(UserById)
-        res.status(200).json({ msn: 'Usuário encontrado com Successo!!' });
+        res.status(200).json(UserById);
     });
     
     app.put('/users/:id', async(req, res) => {
