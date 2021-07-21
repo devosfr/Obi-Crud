@@ -33,7 +33,7 @@
           type="button"
           class="btn btn-secondary"
           id="btn-cancelar"
-          @click="redirectGoBack()"
+          @click.prevent="redirectGoBack()"
           value="Cancelar"
         />
         <input

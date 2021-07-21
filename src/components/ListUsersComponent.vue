@@ -21,18 +21,12 @@
             <!-- <router-link class="btn btn-success" :to="{ name: '', params: { id: user.id } }">
               <fa icon="edit" /> Editar
             </router-link> -->
-            <button class="btn btn-success" @click="sendUser(user)">
+            <button class="btn btn-success" @click.prevent="sendUser(user)">
               <fa icon="trash-alt" /> Editar
             </button>
           </td>
           <td>
-            <!-- <button class="btn btn-danger"
-             data-bs-toggle="modal" 
-             data-bs-target="#exampleModal"
-             @click="removeUser(user.id)">
-              <fa icon="trash-alt" /> Excluir
-            </button> -->
-            <button class="btn btn-danger" @click="removeUser(user)">
+            <button class="btn btn-danger" @click.prevent="removeUser(user)">
               <fa icon="trash-alt" /> Excluir
             </button>
           </td>
@@ -97,7 +91,7 @@ export default {
       if (confirm("Deseja excluir este usuário?")) {
         await usersService
           .deleteUser(user.id)
-          .then(res => {
+          .then((res) => {
             this.geUsersComponent();
           })
           .catch(error => {
