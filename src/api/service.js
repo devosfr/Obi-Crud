@@ -1,4 +1,4 @@
-const app = require('./src/api');
+const app = require('./app');
 
 const port = process.env.PORT || 3001;
 
