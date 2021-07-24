@@ -1,8 +1,7 @@
     const express = require('express');
-    const dodyParser = require('body-parser');
     const cors = require('cors');
     const app = express();
-    const User = require('./config/userModel');
+    const User = require('./api/userModel');
 
     app.use(express.urlencoded({ extended: true }));
     app.use(express.json());
