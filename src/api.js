@@ -2,7 +2,7 @@
     const dodyParser = require('body-parser');
     const cors = require('cors');
     const app = express();
-    const User = require('../src/config/userModel');
+    const User = require('./config/userModel');
 
     app.use(express.urlencoded({ extended: true }));
     app.use(express.json());
@@ -17,7 +17,7 @@
 
     app.get('/users', async(req, res) => {
         const Users = await User.findAll();
-        res.status(200).json(Users)
+        res.status(200).json(Users);
     });
 
     app.get('/users/:id', async(req, res) => {
@@ -27,16 +27,23 @@
 
     app.put('/users/:id', (req, res) => {
         const { name, email } = req.body;
-        const { id }  = req.params;
+        const { id } = req.params;
         User.update({ name, email }, { where: { id: id } });
-        res.status(200).json({ message: "Editado!!"});
+        res.status(200).json({ message: "Editado!!" });
+    });
+
+    app.put('/users/:id', async(req, res) => {
+        const { name, email } = req.body;
+        const { id } = req.params;
+        await User.update({ name, email }, { where: { id: id } });
+        res.status(200).json({ msn: 'Atualiado com Successo!!' });
     });
 
     app.delete('/users/:id', async(req, res) => {
         const { id } = req.params;
         await User.destroy({
-            where:{
-                id: id, 
+            where: {
+                id: id,
             }
         });
         res.status(200).json({ msn: 'Excluido com Successo!!' });

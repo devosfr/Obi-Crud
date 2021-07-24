@@ -31,17 +31,9 @@
       <div class="mb-3 btns">
         <input
           type="button"
-          class="btn btn-secondary"
-          v-show="false"
-          id="btn-cancelar"
-          @click="submitNewUser"
-          value="Cancelar"
-        />
-        <input
-          type="button"
           id="addButton"
           class="btn btn-primary"
-          @click="submitNewUser"
+          @click.prevent="submitNewUser()"
           value="Adicionar Usuário"
         />
       </div>
@@ -149,7 +141,6 @@ export default {
       }
     },
     submitNewUser() {
-      if (!this.userForm.id) {
         const name = document.getElementById("name");
         const email = document.getElementById("email");
 
@@ -194,29 +185,6 @@ export default {
           document.getElementById("ms_name").innerHTML = "";
           document.getElementById("ms_email").innerHTML = "";
         }
-      } else {
-        const name = document.getElementById("name");
-        const email = document.getElementById("email");
-
-        if (
-          name.value === null ||
-          name.value === "" ||
-          email.value === null ||
-          email.value === ""
-        ) {
-          this.validateChilds();
-        } else {
-          document.getElementById("ms_name").innerHTML = "";
-          document.getElementById("ms_email").innerHTML = "";
-          try {
-            usersService.updateUser(this.userForm).then(res => {
-              console.log("Editado com Successo!");
-            });
-          } catch (error) {
-            console.log(error);
-          }
-        }
-      }
     },
     editUser(userForm) {
       this.userForm = userForm;
