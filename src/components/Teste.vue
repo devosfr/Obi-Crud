@@ -99,8 +99,20 @@ import jQuery from "jquery";
 import usersService from "../services/usersService";
 
 global.jQuery = jQuery;
+new Vue({
+  name: "teste",
+  el: "#app",
+  template: `<h1>Html no meio</h1>`,
+  validations: {},
+  methods: {},
+  mounted() {},
+  data() {
+    return {};
+  }
+});
 
 export default {
+  template: ``,
   mounted() {
     this.getUsersComponent();
     if (document.location.pathname === "/aditUser") {
@@ -127,7 +139,7 @@ export default {
   },
   methods: {
     async getUsersComponent() {
-      await usersService.getUsers().then((res) => {
+      await usersService.getUsers().then(res => {
         this.users = res;
       });
     },

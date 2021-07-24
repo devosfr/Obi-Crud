@@ -1,6 +1,5 @@
 import { createApp } from 'vue';
 import VurRoute from "vue-router";
-import VueSweetalert2 from 'vue-sweetalert2';
 import axios from 'axios';
 import Vuelidate from 'vuelidate';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -16,5 +15,4 @@ import './assets/css/styles.css';
 
 library.add(fas);
 
-createApp(App).component('fa', FontAwesomeIcon, $).use(router, 
-    VueSweetalert2, axios, Vuelidate, library, FontAwesomeIcon, VurRoute).mount('#app');
+createApp(App).component('fa', FontAwesomeIcon, $).use(router, axios, Vuelidate, library, FontAwesomeIcon, VurRoute).mount('#app');

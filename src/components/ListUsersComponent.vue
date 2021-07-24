@@ -21,7 +21,7 @@
             <!-- <router-link class="btn btn-success" :to="{ name: '', params: { id: user.id } }">
               <fa icon="edit" /> Editar
             </router-link> -->
-            <button class="btn btn-success" @click="sendUser(user)">
+            <button class="btn btn-success" @click.prevent="sendUser(user)">
               <fa icon="trash-alt" /> Editar
             </button>
           </td>

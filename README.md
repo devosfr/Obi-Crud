@@ -12,5 +12,5 @@ o qual está na porta 3001 (localhost:3001).
 
 O servidor do vue está na porta 8080, o que já vêm como padrão.
 
-Para baixar as dependências do projéro é necessário gigitar o comando 
-"npm install" no prompt de comando
+Para baixar as dependências do projéro é necessário digitar o comando 
+"npm install" com o prompt de comando na raiz do projéto.

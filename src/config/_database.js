@@ -1,7 +1,4 @@
-const { Sequelize, Model, DataTypes } = require('sequelize');
-const express = require('express');
-const app = express();
-const router = express.Router();
+const { Sequelize } = require('sequelize');
 
 // conexão
 const sequelize = new Sequelize('obicrude', 'root', '', {

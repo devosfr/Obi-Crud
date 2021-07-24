@@ -1,7 +1,7 @@
 const { Sequelize, Model, DataTypes } = require('sequelize');
 const database = require('./_database');
 
-User = database.define('users', {
+const User = database.define('users', {
     name: Sequelize.STRING,
     email: Sequelize.STRING
 }, {

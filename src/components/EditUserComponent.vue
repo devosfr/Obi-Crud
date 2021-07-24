@@ -183,7 +183,7 @@ export default {
     redirectView() {
       if (document.getElementById("modal-dody-id").innerHTML === "Usuário editado com successo!") {
         document.location.href =
-          window.location.origin + window.location.pathname + window.location.search;
+          window.location.origin + "/";
       }
     }
   }
